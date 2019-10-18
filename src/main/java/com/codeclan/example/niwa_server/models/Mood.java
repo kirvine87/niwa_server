@@ -18,7 +18,7 @@ public class Mood {
     private int rating;
     private String tag;
 
-    @JsonIgnoreProperties("moods")
+    @JsonIgnoreProperties("mood")
     @ManyToOne
     @JoinColumn(name = "day_id", nullable = false)
     private Day day;

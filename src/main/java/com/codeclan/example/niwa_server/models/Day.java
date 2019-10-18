@@ -13,7 +13,7 @@ public class Day {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column
     private String journalEntry;
@@ -64,11 +64,11 @@ public class Day {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        id = id;
     }
 
     public String getJournalEntry() {
@@ -149,9 +149,5 @@ public class Day {
 
     public void setMood(List<Mood> mood) {
         this.moods = mood;
-    }
-
-    public void addMood(Mood mood){
-        this.moods.add(mood);
     }
 }

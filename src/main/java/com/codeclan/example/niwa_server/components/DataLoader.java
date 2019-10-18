@@ -39,8 +39,20 @@ public class DataLoader implements ApplicationRunner {
         Mood mood2 = new Mood(date, 3, day);
         moodRepository.save(mood2);
 
-        day.addMood(mood);
-        dayRepository.save(day);
+        Day day2 = new Day(date);
+        dayRepository.save(day2);
+
+        Mood mood3 = new Mood(date, 4, day2);
+        moodRepository.save(mood3);
+
+        Day day3 = new Day(date);
+        dayRepository.save(day3);
+
+        Mood mood4 = new Mood(date, 4, day3);
+        moodRepository.save(mood4);
+
+        day3.setCalorieIntake(500);
+        dayRepository.save(day3);
 
     }
 }
