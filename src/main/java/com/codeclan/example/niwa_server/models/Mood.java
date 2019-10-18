@@ -1,5 +1,7 @@
 package com.codeclan.example.niwa_server.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -16,13 +18,19 @@ public class Mood {
     private int rating;
     private String tag;
 
+    @JsonIgnoreProperties("moods")
+    @ManyToOne
+    @JoinColumn(name = "day_id", nullable = false)
+    private Day day;
+
     public Mood() {
     }
 
-    public Mood(Date time) {
+    public Mood(Date time, int rating, Day day) {
         this.time = time;
-        this.rating = 0;
+        this.rating = rating;
         this.tag = "";
+        this.day = day;
     }
 
     public Long getId() {
@@ -55,5 +63,13 @@ public class Mood {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public Day getDay() {
+        return day;
+    }
+
+    public void setDay(Day day) {
+        this.day = day;
     }
 }

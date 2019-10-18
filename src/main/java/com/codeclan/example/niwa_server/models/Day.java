@@ -1,7 +1,11 @@
 package com.codeclan.example.niwa_server.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "days")
@@ -38,6 +42,10 @@ public class Day {
     @Column
     private Date date;
 
+    @JsonIgnoreProperties("day")
+    @OneToMany(mappedBy = "day")
+    private List<Mood> moods;
+
     public Day(){
 
     }
@@ -52,6 +60,7 @@ public class Day {
         this.win2 = "";
         this.win3 = "";
         this.date = date;
+        this.moods = new ArrayList<>();
     }
 
     public Long getId() {
@@ -132,5 +141,17 @@ public class Day {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public List<Mood> getMood() {
+        return moods;
+    }
+
+    public void setMood(List<Mood> mood) {
+        this.moods = mood;
+    }
+
+    public void addMood(Mood mood){
+        this.moods.add(mood);
     }
 }
