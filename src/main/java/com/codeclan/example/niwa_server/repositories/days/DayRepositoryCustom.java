@@ -6,6 +6,4 @@ import java.util.List;
 
 public interface DayRepositoryCustom {
 
-    List<Day> getDaysByIdBetween(Long id1, Long id2);
-
 }
