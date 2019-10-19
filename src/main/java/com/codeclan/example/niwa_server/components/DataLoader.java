@@ -29,30 +29,37 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args){
         Date date = new Date();
+        Date date1 = new Date(1571400073000L);
+        Date date2 = new Date(1571313673000L);
+        Date date3 = new Date(157122727300L);
+        Date date4 = new Date(157114087300L);
 
-        Day day = new Day(date);
+        Day day = new Day(date1);
         dayRepository.save(day);
 
-        Mood mood = new Mood(date, 4, day);
+        Mood mood = new Mood(date1, 4, day);
         moodRepository.save(mood);
 
-        Mood mood2 = new Mood(date, 3, day);
+        Mood mood2 = new Mood(date1, 3, day);
         moodRepository.save(mood2);
 
-        Day day2 = new Day(date);
+        Day day2 = new Day(date2);
         dayRepository.save(day2);
 
-        Mood mood3 = new Mood(date, 4, day2);
+        Mood mood3 = new Mood(date2, 4, day2);
         moodRepository.save(mood3);
 
-        Day day3 = new Day(date);
+        Day day3 = new Day(date3);
         dayRepository.save(day3);
 
-        Mood mood4 = new Mood(date, 4, day3);
+        Mood mood4 = new Mood(date3, 4, day3);
         moodRepository.save(mood4);
 
         day3.setCalorieIntake(500);
         dayRepository.save(day3);
+
+        Day day4 = new Day(date4);
+        dayRepository.save(day4);
 
     }
 }
