@@ -27,4 +27,9 @@ public class DayController {
         return dayRepository.findTopByOrderByIdDesc();
     }
 
+    @GetMapping(value = "week")
+    public List<Day> getWeek(){
+        return dayRepository.findTop7ByOrderByIdDesc();
+    }
+
 }

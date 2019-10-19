@@ -9,4 +9,6 @@ public interface DayRepository extends JpaRepository<Day, Long>, DayRepositoryCu
     List<Day> getDaysByIdBetween(Long id1, Long id2);
 
     List<Day> findTopByOrderByIdDesc();
+
+    List<Day> findTop7ByOrderByIdDesc();
 }
