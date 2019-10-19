@@ -22,4 +22,9 @@ public class DayController {
         return dayRepository.getDaysByIdBetween(id1, id2);
     }
 
+    @GetMapping(value = "latest")
+    public List<Day> getLatestDay(){
+        return dayRepository.findTopByOrderByIdDesc();
+    }
+
 }
