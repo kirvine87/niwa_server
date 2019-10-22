@@ -15,6 +15,7 @@ public class Day {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Lob
     @Column
     private String journalEntry;
 
@@ -30,12 +31,15 @@ public class Day {
     @Column
     private Boolean meditated;
 
+    @Lob
     @Column
     private String win1;
 
+    @Lob
     @Column
     private String win2;
 
+    @Lob
     @Column
     private String win3;
 
